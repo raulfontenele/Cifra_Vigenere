@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cifra de Vigenère</title>
@@ -9,7 +9,20 @@
 </head>
 <body>
     <script>
-        criarTabela();
+        //criarTabela();
+        var mensagem = prompt("Digite a mensagem");
+        var cifra = prompt("Digite a cifra");
+
+        var saida = criptografar(mensagem,cifra);
+
+        alert(saida);
+
+        var mensagem = prompt("Digite a mensagem criptografada");
+        var cifra = prompt("Digite a cifra");
+
+        var saida = descriptografar(mensagem,cifra);
+
+        alert(saida);
     </script>
     <div id="tabela"></div>
 </body>
