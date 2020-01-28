@@ -3,39 +3,25 @@ function criarTabela(){
     var matriz = new Array(256);
     for(var i = 0; i<=255; i ++) matriz[i] = new Array(256);
 
-
     //Preencher a matriz
-    //var texto = "<table border = '1px solid'>";
     var ctr = 0;
     var cont = ctr;
     for (var linha = 0; linha <=255; linha ++){
-        //texto+="<tr>";
         cont = ctr;
         for(var coluna = 0; coluna<=255; coluna ++){
             if(cont > 255) cont = 0;
             if(linha == 0) {
-                //texto +="<th>";
                 if(coluna!=0)matriz[linha][coluna]= String.fromCharCode(cont);
             }
             else{
-                //texto +="<td>";
                 matriz[linha][coluna]= String.fromCharCode(cont);
             } 
             if(coluna>0) cont ++;
 
         }
-        if(linha != 0)  ctr ++;//texto +="</th>";
-        /*
-        else{
-            //texto +="</td>";
-            ctr ++;
-        }
-        */
+        if(linha != 0)  ctr ++;
        
     }
-    //texto += "</table>";
-    //document.write(texto);
-    //document.getElementById("tabela").innerHTML = texto;
     return matriz;
 }
 
@@ -66,4 +52,42 @@ function descriptografar(mensagemCriptografada, cifra){
     }
     
     return textoOriginal;
+}
+
+function criptografarMensagem(){
+    var mensagem = document.getElementById("txtCripto").value;
+    var cifra = document.getElementById("inputCifraCripto").value;
+
+    if(mensagem !="" && cifra != ""){
+        var msgCripto = criptografar(mensagem,cifra);
+        document.getElementById("txtDescripto").value = msgCripto;
+        corAlerta("txtCripto",false);
+        corAlerta("inputCifraCripto",false);
+    }
+    else{
+        if(mensagem=="")corAlerta("txtCripto",true);
+        if(cifra=="")corAlerta("inputCifraCripto",true);
+    }
+}
+
+function descriptografarMensagem(){
+    var mensagem = document.getElementById("txtDescripto").value;
+    var cifra = document.getElementById("inputCifraDescripto").value;
+
+    if(mensagem !="" && cifra != ""){
+        var msgDescripto = descriptografar(mensagem,cifra);
+        document.getElementById("txtCripto").value = msgDescripto;
+        corAlerta("txtDescripto",false);
+        corAlerta("inputCifraDescripto",false);
+    }
+    else{
+        if(mensagem=="")corAlerta("txtDescripto",true);
+        if(cifra=="")corAlerta("inputCifraDescripto",true);
+    }
+}
+
+function corAlerta(id,alerta){
+    if(alerta)document.getElementById(id).style.backgroundColor  = "#ff8080";
+    
+    else document.getElementById(id).style.backgroundColor  = "#ffffff";
 }

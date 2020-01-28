@@ -5,26 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cifra de Vigenère</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--Importar arquivos do bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Importe dos códigos do bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    
     <script src="js/funcoes.js"></script>
 </head>
 <body>
-    <script>
-        //criarTabela();
-        var mensagem = prompt("Digite a mensagem");
-        var cifra = prompt("Digite a cifra");
+    <div class="container">
+        <div class="row titulo">
+            <h1 class = "mx-auto">Criptografia de Vigenère</h1>
+        </div>
 
-        var saida = criptografar(mensagem,cifra);
+        <div class="row">
+            <div class="col">
+                <form class = "formulario">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <textarea class="form-control" id="txtCripto" rows="7" placeholder="Mensagem original*"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row pt-2">
+                        <div class="form-group col">
+                            <input type="text" class="form-control" id="inputCifraCripto" placeholder="Cifra*">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" onclick="criptografarMensagem()">Criptografar</button>
+                </form>
+        
+            </div>
+            <div class="col">
+                <form class = "formulario">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <textarea class="form-control" id="txtDescripto" rows="7" placeholder="Mensagem criptografada*"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row pt-2">
+                        <div class="form-group col">
+                            <input type="text" class="form-control" id="inputCifraDescripto" placeholder="Cifra*">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" onclick="descriptografarMensagem()">Descriptografar</button>
+                </form>
+            </div>
+        </div>
 
-        alert(saida);
+    </div>
 
-        var mensagem = prompt("Digite a mensagem criptografada");
-        var cifra = prompt("Digite a cifra");
-
-        var saida = descriptografar(mensagem,cifra);
-
-        alert(saida);
-    </script>
-    <div id="tabela"></div>
 </body>
 
 </html>
